@@ -58,6 +58,11 @@ ORDER BY first_name ASC , last_name DESC ;
 SELECT emp_no, first_name, last_name
 FROM employees
 WHERE first_name IN ('Irene', 'Vidya', 'Maya')
+ORDER BY first_name;
+
+SELECT emp_no, first_name, last_name
+FROM employees
+WHERE first_name IN ('Irene', 'Vidya', 'Maya')
 ORDER BY first_name, last_name;
 
 SELECT emp_no, first_name, last_name
@@ -67,7 +72,7 @@ ORDER BY last_name, first_name;
 
 SELECT emp_no, first_name, last_name
 FROM employees
-WHERE last_name LIKE 'e%' OR last_name LIKE '%e'
+WHERE last_name LIKE 'e%' OR first_name LIKE '%e'
 ORDER BY emp_no ASC ;
 
 SELECT emp_no, first_name, last_name

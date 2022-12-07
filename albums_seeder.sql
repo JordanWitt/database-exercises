@@ -1,4 +1,5 @@
 USE database_codeup_test_db;
+# TRUNCATE
 # INSERT INTO albums (artist_name, name, release_date, sales, genre)
 # VALUES ('Led Zeppelin', 'Led Zeppelin IV', '1971', '37m', 'Classic Rock');
 #

@@ -22,7 +22,8 @@ SELECT DISTINCT last_name
 FROM employees
 WHERE last_name LIKE '%q%'
     AND last_name NOT LIKE '%qu%'
-    GROUP BY last_name;
+    GROUP BY last_name
+    ORDER BY COUNT(last_name) ASC ;
 
 SELECT DISTINCT COUNT(last_name), last_name
 FROM employees
@@ -34,3 +35,9 @@ SELECT DISTINCT COUNT(*), gender
 FROM employees
 WHERE first_name IN ('Irene', 'Vidya', 'Maya')
     GROUP BY gender;
+
+SELECT DISTINCT COUNT(*), first_name
+FROM employees
+    WHERE first_name LIKE 'jor%'
+    GROUP BY first_name
+    ORDER BY COUNT(first_name) DESC ;

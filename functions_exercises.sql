@@ -94,18 +94,22 @@ WHERE last_name LIKE 'e%'
 OR last_name LIKE '%e';
 
 SELECT * FROM employees
-WHERE MONTH(birth_date) = 12
-    AND DAY(birth_date) = 25;
+WHERE birth_date LIKE '%-12-25';
 
 SELECT * FROM employees
-WHERE (MONTH(birth_date) = 12
-  AND DAY(birth_date) = 25)
+WHERE birth_date LIKE '%-12-25'
     AND YEAR(hire_date)
     BETWEEN 1990 AND 1999;
 
 SELECT * FROM employees
-WHERE (MONTH(birth_date) = 12
-    AND DAY(birth_date) = 25)
+WHERE birth_date LIKE '%-12-25'
         AND YEAR(hire_date)
         BETWEEN 1990 AND 1999
         ORDER BY hire_date DESC ;
+
+SELECT DATEDIFF(CURDATE(), hire_date)
+FROM employees
+WHERE birth_date LIKE '%-12-25'
+    AND YEAR(hire_date) BETWEEN 1990 AND 1999
+        ORDER BY hire_date DESC
+        LIMIT 20;

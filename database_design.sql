@@ -1,4 +1,5 @@
-USE database_codeup_test_db;
+CREATE DATABASE if not exists discord_mockup_db;
+USE discord_mockup_db;
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -43,7 +44,7 @@ CREATE TABLE responsibility (
     PRIMARY KEY (id)
 );
 
-INSERT INTO responsibilities(name)
+INSERT INTO responsibility(name)
 VALUES
     ('Kick Member'),
     ('Ban Member'),
@@ -57,7 +58,7 @@ CREATE TABLE user_responsibility(
      responsibility_id INTEGER UNSIGNED NOT NULL,
      FOREIGN KEY (user_id) REFERENCES users(id),
      FOREIGN KEY (roles_id) REFERENCES roles(id),
-     FOREIGN KEY (responsibility_id) REFERENCES responsibilities(id)
+     FOREIGN KEY (responsibility_id) REFERENCES responsibility(id)
 );
 
 INSERT INTO user_responsibility(user_id, roles_id, responsibility_id)

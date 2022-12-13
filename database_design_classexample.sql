@@ -6,7 +6,6 @@ CREATE TABLE authors (
     first_name VARCHAR(50),
     last_name  VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
-
 );
 # ----------INSERTING AUTHOR INFO-----------------------
 
@@ -86,3 +85,10 @@ VALUES (1, 2), (1, 3),
        (3, 2), (3, 3),
        (3, 4), (4, 2),
        (5, 1);
+
+SELECT * FROM topics;
+DESCRIBE  quote_topic;
+
+SELECT * FROM quote_topic;
+# DISPLAYS HOW MANY TOPICS EACH QUOTE_ID HAS
+# -----EX 1 2 TOPICS, 1 3 TOPICS ETC.

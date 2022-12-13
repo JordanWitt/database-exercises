@@ -1,7 +1,7 @@
 CREATE DATABASE if not exists discord_mockup_db;
 USE discord_mockup_db;
 
-CREATE TABLE users (
+CREATE TABLE if not exists users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(50),
     last_name  VARCHAR(100) NOT NULL,
@@ -13,7 +13,10 @@ INSERT INTO users (first_name, last_name, username)
 VALUES
 ('Jordan', 'Witt', 'Cimarron'),
 ('Kiley', 'Hector', 'Chopup'),
-('Hailey', 'Shimansky', 'SejuIndigo');
+('Hailey', 'Shimansky', 'SejuIndigo'),
+('Dwane', 'Smith', 'AFifthZombie'),
+('Josh', 'Lin', 'Dovah'),
+('DaTeng', 'Lin', 'Tengo');
 
 CREATE TABLE roles (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -30,7 +33,16 @@ INSERT INTO roles (users_id, content)
 VALUES ((SELECT id FROM users WHERE first_name = 'Kiley' AND last_name = 'Hector'),
         'Mod');
 INSERT INTO roles (users_id, content)
+VALUES ((SELECT id FROM users WHERE first_name = 'Dwane' AND last_name = 'Smith'),
+        'Mod');
+INSERT INTO roles (users_id, content)
 VALUES ((SELECT id FROM users WHERE first_name = 'Hailey' AND last_name = 'Shimansky'),
+        'Member');
+INSERT INTO roles (users_id, content)
+VALUES ((SELECT id FROM users WHERE first_name = 'Josh' AND last_name = 'Lin'),
+        'Member');
+INSERT INTO roles (users_id, content)
+VALUES ((SELECT id FROM users WHERE first_name = 'DaTeng' AND last_name = 'Lin'),
         'Member');
 
 DESCRIBE users;
@@ -65,6 +77,11 @@ INSERT INTO user_responsibility(user_id, roles_id, responsibility_id)
 VALUES
 (1,1,1), (1,1,2), (1,1,3), (1,1,4), (1,1,5),
 (2,2,1), (2,2,2), (2,2,3), (2,2,4),
-(3,3,3), (3,3,4);
+(3,3,3), (3,3,4),
+(4,2,1), (4,2,2), (4,2,3), (4,2,4),
+(5,3,3), (5,3,4),
+(6,3,3), (6,3,4);
 
+SELECT * FROM discord_mockup_db.users;
 
+SELECT * FROM users WHERE id = 4;
